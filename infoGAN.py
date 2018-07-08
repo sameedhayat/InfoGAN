@@ -27,10 +27,10 @@ class generator(nn.Module):
             nn.ReLU(),
         )
         self.deconv = nn.Sequential(
-            nn.ConvTranspose2d(128, 64, 4, 2, 1),
-            nn.BatchNorm2d(64),
+            nn.ConvTranspose1d(128, 64, 4, 2, 1),
+            nn.BatchNorm1d(64),
             nn.ReLU(),
-            nn.ConvTranspose2d(64, self.output_dim, 4, 2, 1),
+            nn.ConvTranspose1d(64, self.output_dim, 4, 2, 1),
             nn.Tanh(),
         )
         utils.initialize_weights(self)
@@ -55,9 +55,9 @@ class discriminator(nn.Module):
         self.len_continuous_code = len_continuous_code  # gaussian distribution (e.g. rotation, thickness)
 
         self.conv = nn.Sequential(
-            nn.Conv2d(self.input_dim, 64, 4, 2, 1),
+            nn.Conv1d(self.input_dim, 64, 4, 2, 1),
             nn.LeakyReLU(0.2),
-            nn.Conv2d(64, 128, 4, 2, 1),
+            nn.Conv1d(64, 128, 4, 2, 1),
             nn.BatchNorm2d(128),
             nn.LeakyReLU(0.2),
         )
@@ -71,6 +71,7 @@ class discriminator(nn.Module):
         utils.initialize_weights(self)
 
     def forward(self, input):
+        print input.size()
         x = self.conv(input)
         x = x.view(-1, 128 * (self.input_size // 4) * (self.input_size // 4))
         x = self.fc(x)
