@@ -159,6 +159,10 @@ class infoGAN(object):
             self.sample_z_, self.sample_y_, self.sample_c_, self.sample_z2_, self.sample_y2_, self.sample_c2_ = \
                 self.sample_z_.cuda(), self.sample_y_.cuda(), self.sample_c_.cuda(), self.sample_z2_.cuda(), \
                 self.sample_y2_.cuda(), self.sample_c2_.cuda()
+        print "----------------------y2---------------"
+        print self.sample_y2_
+        print "----------------------c2---------------"
+        print self.sample_c2_
 
     def train(self):
         self.train_hist = {}
