@@ -5,7 +5,7 @@ import numpy as np
 import torch
 
 def get_data():
-    X = np.load('data/eeg/train_signal.npy'
+    X = np.load('data/eeg/train_signal.npy')
     #X = np.swapaxes(X, 1, 2)
 
     y = np.load('data/eeg/train_labels.npy')
