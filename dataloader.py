@@ -6,7 +6,9 @@ import torch
 
 def get_data():
     X = np.load('data/eeg/train_signal.npy')
-    X = np.swapaxes(X, 1, 2)
+    X = X[:, 0, :]
+    print X.shape
+    #X = np.swapaxes(X, 1, 2)
 
     y = np.load('data/eeg/train_labels.npy')
     # one hot encoding of the labels
