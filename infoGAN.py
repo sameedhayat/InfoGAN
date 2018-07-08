@@ -4,6 +4,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 import matplotlib.pyplot as plt
+plt.switch_backend('agg')
 from dataloader import dataloader
 
 class generator(nn.Module):
