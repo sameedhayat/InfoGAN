@@ -9,7 +9,7 @@ def parse_args():
     parser.add_argument('--gan_type', type=str, default='infoGAN',
                         choices=['infoGAN'],
                         help='The type of GAN')
-    parser.add_argument('--dataset', type=str, default='mnist', choices=['mnist'],
+    parser.add_argument('--dataset', type=str, default='mnist', choices=['mnist', 'eeg'],
                         help='The name of dataset')
     parser.add_argument('--epoch', type=int, default=50, help='The number of epochs to run')
     parser.add_argument('--batch_size', type=int, default=64, help='The size of batch')
