@@ -70,11 +70,11 @@ def main():
     gan = infoGAN(args, SUPERVISED=False)
 
     # launch the graph in a session
-    gan.train()
+    #gan.train()
     print(" [*] Training finished!")
 
     # visualize learned generator
-    gan.visualize_results(args.epoch)
+    #gan.visualize_results(args.epoch)
     print(" [*] Testing finished!")
 
 if __name__ == '__main__':
