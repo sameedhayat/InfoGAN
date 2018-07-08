@@ -27,6 +27,6 @@ def dataloader(dataset, input_size, batch_size, split='train'):
         tensor_y = torch.stack([torch.Tensor(i) for i in y])
 
         my_dataset = utils.TensorDataset(tensor_x, tensor_y)  # create your datset
-        data_loader = utils.DataLoader(my_dataset)  # create your dataloader
+        data_loader = utils.DataLoader(my_dataset, batch_size=batch_size, shuffle=True)  # create your dataloader
 
     return data_loader
